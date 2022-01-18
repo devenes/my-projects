@@ -10,7 +10,7 @@ def head():
 
 @app.route('/mult')
 def number():
-    var1, var2 = 30, 70
+    var1, var2 = 300, 700
     return render_template('body.html', num1=var1, num2=var2, multiplication=var1*var2)
 
 
