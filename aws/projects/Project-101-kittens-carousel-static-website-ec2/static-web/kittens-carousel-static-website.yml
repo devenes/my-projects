@@ -12,20 +12,52 @@ Description: |
   then deployed on Apache Web Server.
 
 Resources:
-
-secGroupName:
   WebServerSecurityGroup:
     Type: AWS::EC2::SecurityGroup
     Properties:
-      GroupName:
-      GroupDescription:
-      VpcId:
+      GroupDescription: Enable HTTP for Apache Web Server and SSH for secure connection.
       SecurityGroupIngress:
-        - Security Group Rule
-      SecurityGroupEgress:
-        - Security Group Rule
-      Tags:
-        - Key:
-          Value:
+        - IpProtocol: tcp
+          FromPort: 80
+          ToPort: 80
+          CidrIp: "0. 0. 0. 0/0"
+        - IpProtocol: tcp
+          FromPort: 22
+          ToPort: 22
+          CidrIp: "0. 0. 0. 0/0"
 
-Outputs:
+WebServerHost: 
+  Type: AWS::EC2::Instance
+  Properties:
+    ImageId: ami-0a8b4cd432b1c3063
+    InstanceType: t2.micro
+    KeyName: http
+    SecurityGroupIds:
+      - !Ref WebServerSecurityGroup
+    Tags:
+      - Key: Name
+        Value: !Sub Web Server of ${AWS::StackName} Stack
+    UserData:
+      Fn::Base64:
+        !Sub 
+          #! /bin/bash
+          yum update -y
+          yum install httpd -y
+          FOLDER="https://raw.githubusercontent.com/devenes/my-projects/main/aws/projects/Project-101-kittens-carousel-static-website-ec2/static-web"
+          cd /var/www/html
+          wget $FOLDER/index.html
+          wget $FOLDER/cat0.jpg
+          wget $FOLDER/cat1.jpg
+          wget $FOLDER/cat2.jpg
+          wget $FOLDER/cat3.png
+          systemctl start httpd
+          systemctl enable httpd
+    
+Outputs: 
+  WebsiteURL:
+    Value: !Sub
+      - http://${PublicAddress}
+      - PublicAddress: !GetAtt WebServerHost.PublicDnsName
+    Description: Kittens Carousel Application URL
+
+
