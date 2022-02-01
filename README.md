@@ -1,1 +1,1 @@
-# my-projects
+# my-python-projects
