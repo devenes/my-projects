@@ -20,26 +20,25 @@ Resources:
         - IpProtocol: tcp
           FromPort: 80
           ToPort: 80
-          CidrIp: "0. 0. 0. 0/0"
+          CidrIp: 0.0.0.0/0
         - IpProtocol: tcp
           FromPort: 22
           ToPort: 22
-          CidrIp: "0. 0. 0. 0/0"
+          CidrIp: 0.0.0.0/0
 
-WebServerHost: 
-  Type: AWS::EC2::Instance
-  Properties:
-    ImageId: ami-0a8b4cd432b1c3063
-    InstanceType: t2.micro
-    KeyName: http
-    SecurityGroupIds:
-      - !Ref WebServerSecurityGroup
-    Tags:
-      - Key: Name
-        Value: !Sub Web Server of ${AWS::StackName} Stack
-    UserData:
-      Fn::Base64:
-        !Sub 
+  WebServerHost:
+    Type: AWS::EC2::Instance
+    Properties:
+      ImageId: ami-0a8b4cd432b1c3063
+      InstanceType: t2.micro
+      KeyName: http
+      SecurityGroupIds:
+        - !Ref WebServerSecurityGroup
+      Tags:
+        - Key: Name
+          Value: !Sub Web Server of ${AWS::StackName} Stack
+      UserData:
+        Fn::Base64: !Sub |
           #! /bin/bash
           yum update -y
           yum install httpd -y
@@ -52,12 +51,10 @@ WebServerHost:
           wget $FOLDER/cat3.png
           systemctl start httpd
           systemctl enable httpd
-    
-Outputs: 
+
+Outputs:
   WebsiteURL:
     Value: !Sub
       - http://${PublicAddress}
       - PublicAddress: !GetAtt WebServerHost.PublicDnsName
     Description: Kittens Carousel Application URL
-
-
