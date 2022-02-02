@@ -45,7 +45,7 @@ Resources:
           systemctl start nginx                                          # Start Nginx
           systemctl enable nginx                                         # Enable Nginx
           rm /usr/share/nginx/html/index.html                            # remove default index.html  
-          FOLDER="https://raw.githubusercontent.com/devenes/my-projects/main/aws/projects/Project-101-kittens-carousel-static-website-ec2/static-web"
+          FOLDER="https://raw.githubusercontent.com/devenes/my-projects/main/aws/projects/Project-101-kittens-carousel-static-website-ec2-Nginx"                  
           cd /usr/share/nginx/html                                       # change directory to /usr/share/nginx/html
           wget $FOLDER/index.html                                        # download index.html 
           wget $FOLDER/cat0.jpg                                          # download cat0.jpg
