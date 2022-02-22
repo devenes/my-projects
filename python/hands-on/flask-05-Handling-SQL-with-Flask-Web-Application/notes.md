@@ -1,4 +1,6 @@
 RDS mysql notlari:
+https://flask-sqlalchemy.palletsprojects.com/en/2.x/config/
+https://code.tutsplus.com/tr/tutorials/creating-a-web-app-from-scratch-using-python-flask-and-mysql--cms-22972
 ************************
 My Project repomuza push ettikten sonra localdeki kodu VSC'da actık.
 Daha sonra kodumuzun calısması için asagıdaki komutları local pc'mizde çalıştırıp gerekli programları yükledik.

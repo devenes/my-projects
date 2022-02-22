@@ -35,10 +35,9 @@ db.session.execute(users_table)
 db.session.execute(data)
 db.session.commit()
 
+
 # - Write a function named `find_emails` which find emails using keyword from the user table in the db,
 # - and returns result as tuples `(name, email)`.
-
-
 def find_emails(keyword):
     query = f"""
     SELECT * FROM users WHERE username like '%{keyword}%';
