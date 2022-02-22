@@ -18,6 +18,7 @@ email VARCHAR);
 data = """
 INSERT INTO users
 VALUES
+    ("Enes", "enes@aws.com"),
 	("Levent", "levent@amazon.com"),
     ("Beyza", "beyza@google.com"),
     ("Oguzhan", "oguzhan@bmw.com"),
@@ -36,6 +37,8 @@ db.session.commit()
 
 # - Write a function named `find_emails` which find emails using keyword from the user table in the db,
 # - and returns result as tuples `(name, email)`.
+
+
 def find_emails(keyword):
     query = f"""
     SELECT * FROM users WHERE username like '%{keyword}%';
@@ -48,7 +51,7 @@ def find_emails(keyword):
 
 
 # - Write a function named `insert_email` which adds new email to users table the db.
-def insert_email(name,email):
+def insert_email(name, email):
     query = f"""
     SELECT * FROM users WHERE username like '{name}'
     """
@@ -97,6 +100,7 @@ def add_email():
 
 
 # - Add a statement to run the Flask application which can be reached from any host on port 80.
-if __name__=='__main__':
-    app.run(debug=True)
-    #app.run(host='0.0.0.0', port=80)
+if __name__ == '__main__':
+    # app.run(debug=True)
+    # - Add port to run the application on a specific port number (e.g. 80)
+    app.run(host='0.0.0.0', port=80)

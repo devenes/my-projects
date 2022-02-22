@@ -45,6 +45,8 @@ cursor.execute(data)
 
 # Write a function named `find_emails` which find emails using keyword from the user table in the db,
 # and returns result as tuples `(name, email)`.
+
+
 def find_emails(keyword):
     query = f"""
     SELECT * FROM users WHERE username like '%{keyword}%';
@@ -58,6 +60,8 @@ def find_emails(keyword):
     return user_emails
 
 # Write a function named `insert_email` which adds new email to users table the db.
+
+
 def insert_email(name, email):
     query = f"""
     SELECT * FROM users WHERE username like '{name}';
@@ -85,6 +89,8 @@ def insert_email(name, email):
 # Write a function named `emails` which finds email addresses by keyword using `GET` and `POST` methods,
 # using template files named `emails.html` given under `templates` folder
 # and assign to the static route of ('/')
+
+
 @app.route('/', methods=['GET', 'POST'])
 def emails():
     if request.method == 'POST':
@@ -97,6 +103,8 @@ def emails():
 # Write a function named `add_email` which inserts new email to the database using `GET` and `POST` methods,
 # using template files named `add-email.html` given under `templates` folder
 # and assign to the static route of ('add')
+
+
 @app.route('/add', methods=['GET', 'POST'])
 def add_email():
     if request.method == 'POST':
@@ -107,7 +115,8 @@ def add_email():
     else:
         return render_template('add-email.html', show_result=False)
 
+
 # Add a statement to run the Flask application which can be reached from any host on port 80.
 if __name__ == '__main__':
-   #app.run(debug=True)
-   app.run(host='0.0.0.0', port=80)
+    # app.run(debug=True)
+    app.run(host='0.0.0.0', port=80)

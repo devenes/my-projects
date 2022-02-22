@@ -1,6 +1,7 @@
 # Hands-on Flask-05 : Handling SQL with Flask Web Application
 
-Purpose of the this hands-on training is to give the students introductory knowledge of how to handle forms, how to connect to database and how to use sql within Flask web application on Amazon Linux 2 EC2 instance. 
+Purpose of the this hands-on training is to give the students introductory knowledge of how to handle forms, how to
+connect to database and how to use sql within Flask web application on Amazon Linux 2 EC2 instance.
 
 ![Databases in Flask](./database.png)
 
@@ -36,7 +37,8 @@ At the end of the this hands-on training, students will be able to;
 
 ## Part 1 - Write a Sample Web Application with SQLite and database implementation on GitHub Repo
 
-- Write an application with database implementation using `SQLite` and save the complete code as `app-with-sqlite.py` under `hands-on/flask-05-handling-sql-on-ec2-linux2` folder.
+- Write an application with database implementation using `SQLite` and save the complete code as `app-with-sqlite.py`
+under `hands-on/flask-05-handling-sql-on-ec2-linux2` folder.
 
 - configure required environmental variables for SQLite
 
@@ -72,9 +74,10 @@ At the end of the this hands-on training, students will be able to;
 - Run your application on EC2
 
 
-## Part 3 - Install Python and Flask framework on Amazon Linux 2 EC2 Instance 
+## Part 3 - Install Python and Flask framework on Amazon Linux 2 EC2 Instance
 
-- Launch an Amazon EC2 instance using the Amazon Linux 2 AMI with security group allowing SSH (Port 22) and HTTP (Port 80) connections.
+- Launch an Amazon EC2 instance using the Amazon Linux 2 AMI with security group allowing SSH (Port 22) and HTTP (Port
+80) connections.
 
 - Connect to your instance with SSH.
 
@@ -89,5 +92,3 @@ At the end of the this hands-on training, students will be able to;
 - Install `flask_mysql`.
 
 - Run application with Python
-
-
