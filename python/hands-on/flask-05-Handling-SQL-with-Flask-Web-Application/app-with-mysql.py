@@ -9,7 +9,7 @@ app = Flask(__name__)
 app.config['MYSQL_DATABASE_HOST'] = 'enes-database.c2ubr4n6sizl.us-east-1.rds.amazonaws.com'
 app.config['MYSQL_DATABASE_USER'] = 'admin'
 app.config['MYSQL_DATABASE_PASSWORD'] = 'Admin_123'
-app.config['MYSQL_DATABASE_DB'] = 'enes-database'
+app.config['MYSQL_DATABASE_DB'] = 'enesdb'
 app.config['MYSQL_DATABASE_PORT'] = 3306
 mysql = MySQL()
 mysql.init_app(app)
